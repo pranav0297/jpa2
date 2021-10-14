@@ -29,16 +29,22 @@ public interface EmployeeRepository extends CrudRepository<Employee,Integer> {
 //     List<Employee> findEmployeeFirstAndLastNameBySorting(Sort by);
 
 
-//     @Modifying
-//     @Query("update Employee e set salary =: n where salary<(select ls from (select avg(salary)  as ls from Employee )as dr)")
-//     void updateAllEmployeeByAvgSalary(@Param("n") int n );
+   @Modifying
+    @Query("select avg(salary) from Employee")
+    List<Object> findAvg();
 
-
+    @Modifying
+    @Query("update Employee set salary = 0 where salary = :n2")
+    void updateByAvg( @Param("n2") Object n2);
 
 
     @Modifying
-    @Query("delete from Employee where salary=(select lowestSalary from (select min(salary) as lowestSalary from Employee) as deleteRecord)")
-    void deleteAllEmployeeByAvgSalary();
+    @Query("select min(salary) from Employee")
+    List<Object> findMin();
+
+    @Modifying
+    @Query("delete from Employee where salary =:n")
+    void deleteByMin(@Param("n") Object n);
 
 
 
