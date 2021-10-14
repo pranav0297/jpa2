@@ -70,19 +70,41 @@ class DemoJpa2ApplicationTests {
 //  }
 
 
-// 	@Test
-// 	@Transactional
-// 	@Rollback(false)
-// 	void testUpdateAllEmployeeByAvgSalary(){
-// 		repository.updateAllEmployeeByAvgSalary(1);
-// 	}
+	@Test
+	void testFindAvg(){
+		List<Object>l=repository.findAvg();
 
+		for(Object o:l){
+			System.out.println(o);
+		}
+	}
 
 	@Test
 	@Transactional
 	@Rollback(false)
-	void testDeleteAllEmployeeByMinSalary(){
-		repository.deleteAllEmployeeByAvgSalary();
+	void testUpdateByAvg(){
+		List<Object>l=repository.findAvg();
+		Object n= l.get(0);
+		repository.updateByAvg(n);
+	}
+
+
+	@Test
+	void testFindMin(){
+		List<Object>l=repository.findMin();
+
+		for(Object o:l){
+			System.out.println(o);
+		}
+	}
+
+	@Test
+	@Transactional
+	@Rollback(false)
+	void testDeleteByMin(){
+		List<Object>l=repository.findMin();
+		Object n= l.get(0);
+		repository.deleteByMin(n);
 	}
 
 
