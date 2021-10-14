@@ -25,13 +25,13 @@ public interface EmployeeRepository extends CrudRepository<Employee,Integer> {
     //====================================JPQL=======================================
 
 
-    @Query("select firstName,lastName from Employee where salary>(select ls from (select avg(salary) as ls from Employee)as dr)")
-    List<Employee> findEmployeeFirstAndLastNameBySorting(Sort by);
+//     @Query("select firstName,lastName from Employee where salary>(select ls from (select avg(salary) as ls from Employee)as dr)")
+//     List<Employee> findEmployeeFirstAndLastNameBySorting(Sort by);
 
 
-    @Modifying
-    @Query("update Employee e set salary =: n where salary<(select ls from (select avg(salary)  as ls from Employee )as dr)")
-    void updateAllEmployeeByAvgSalary(@Param("n") int n );
+//     @Modifying
+//     @Query("update Employee e set salary =: n where salary<(select ls from (select avg(salary)  as ls from Employee )as dr)")
+//     void updateAllEmployeeByAvgSalary(@Param("n") int n );
 
 
 
