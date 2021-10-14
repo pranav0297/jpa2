@@ -62,20 +62,20 @@ class DemoJpa2ApplicationTests {
 
 
 //========================================JPQL=====================================================
-	@Test
-	@Transactional
-	@Rollback(false)
-	void testFindEmployeeFirstAndLastNameBySorting(){
-		repository.findEmployeeFirstAndLastNameBySorting(Sort.by(new Sort.Order(null,"age"),new Sort.Order(Sort.Direction.DESC,"salary")));
- }
+// 	@Test
+// 	@Transactional
+// 	@Rollback(false)
+// 	void testFindEmployeeFirstAndLastNameBySorting(){
+// 		repository.findEmployeeFirstAndLastNameBySorting(Sort.by(new Sort.Order(null,"age"),new Sort.Order(Sort.Direction.DESC,"salary")));
+//  }
 
 
-	@Test
-	@Transactional
-	@Rollback(false)
-	void testUpdateAllEmployeeByAvgSalary(){
-		repository.updateAllEmployeeByAvgSalary(1);
-	}
+// 	@Test
+// 	@Transactional
+// 	@Rollback(false)
+// 	void testUpdateAllEmployeeByAvgSalary(){
+// 		repository.updateAllEmployeeByAvgSalary(1);
+// 	}
 
 
 	@Test
